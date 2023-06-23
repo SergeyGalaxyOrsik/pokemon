@@ -14,6 +14,7 @@ dependencies:
     path: ../core
   domain:
     path: ../domain
+  
 
 
 dev_dependencies:
