@@ -8,7 +8,7 @@ abstract class PokemonRemoteDataSource {
   /// Calls the https://pokeapi.co/api/v2/pokemon?offset=0&limit=20 endpoint
   ///
   /// Throws a [ServerException] for all error codes.
-  Future<List<PokemonEntity>> getAllPokemons(int offset);
+  Future<List<PokemonModel>> getAllPokemons(int offset);
 }
 
 class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
@@ -17,7 +17,7 @@ class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
   PokemonRemoteDataSourceImpl({required this.client});
 
   @override
-  Future<List<PokemonEntity>> getAllPokemons(int offset) => _getPokemonsFromUrl(
+  Future<List<PokemonModel>> getAllPokemons(int offset) => _getPokemonsFromUrl(
       'https://pokeapi.co/api/v2/pokemon?offset=$offset&limit=20');
 
   Future<List<PokemonModel>> _getPokemonsFromUrl(String url) async {
