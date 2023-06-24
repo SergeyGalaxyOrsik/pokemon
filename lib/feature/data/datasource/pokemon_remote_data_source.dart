@@ -1,6 +1,5 @@
 import 'package:pokemon/core/error/exceptions.dart';
 import 'package:pokemon/feature/data/models/pokemon_model.dart';
-import 'package:pokemon/feature/domain/entities/pokemon_entity.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -25,8 +24,19 @@ class PokemonRemoteDataSourceImpl implements PokemonRemoteDataSource {
     final response = await client
         .get(Uri.parse(url), headers: {'Content-Type': 'application/json'});
     if (response.statusCode == 200) {
-      final pokemons = json.decode(response.body);
-      return (pokemons['results'] as List)
+      var listPokemons = json.decode(response.body);
+      var pokemons = [];
+      for(int i = 0; i < listPokemons['results'].length; i++) {
+        // print(listPokemons['results'][i]['url']);
+        var responseOnePokemon = await client
+        .get(Uri.parse(listPokemons['results'][i]['url']), headers: {'Content-Type': 'application/json'});
+        var pokemon = json.decode(responseOnePokemon.body);
+        print(pokemon['id']);
+        pokemons.add(pokemon);
+      }
+      
+      // print(pokemons);
+      return pokemons
           .map((pokemon) => PokemonModel.fromJson(pokemon))
           .toList();
     } else {
