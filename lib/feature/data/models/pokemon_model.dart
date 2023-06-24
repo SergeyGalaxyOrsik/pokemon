@@ -1,4 +1,3 @@
-import 'package:pokemon/feature/data/models/sprites_model.dart';
 import 'package:pokemon/feature/domain/entities/pokemon_entity.dart';
 
 class PokemonModel extends PokemonEntity {

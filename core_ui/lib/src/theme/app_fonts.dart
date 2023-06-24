@@ -56,4 +56,61 @@ class AppFonts {
     fontSize: 12,
   );
 
+  static TextStyle body14Light = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.white
+  );
+  
+  static TextStyle body10Light = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    fontSize: 10,
+    color: Colors.white
+  );
+  
+  static TextStyle body12Light = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    color: Colors.white
+  );
+  
+  static TextStyle captionLight = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    fontSize: 8,
+    color: Colors.white
+  );
+  
+  static TextStyle headlineBoldLight = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w700,
+    fontSize: 24,
+    color: Colors.white
+  );
+  
+  static TextStyle subtitleBold10Light = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w700,
+    fontSize: 10,
+    color: Colors.white
+
+  );
+  
+  static TextStyle subtitleBold14Light = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w700,
+    fontSize: 14,
+    color: Colors.white
+  );
+
+  
+  static TextStyle subtitleBold12Light = const TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w700,
+    fontSize: 12,
+    color: Colors.white
+  );
 }

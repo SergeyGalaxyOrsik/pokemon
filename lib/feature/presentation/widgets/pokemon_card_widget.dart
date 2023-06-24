@@ -32,11 +32,13 @@ class PokemonCard extends StatelessWidget {
     };
     return GestureDetector(
       onTap: () {
-        showDialog(
-          context: context,
-          builder: (context) => PokemonFullCard(
-            backgroundColor: typeColor[pokemon.types],
-            pokemon: pokemon,
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PokemonFullCard(
+              backgroundColor: typeColor[pokemon.types],
+              pokemon: pokemon,
+            ),
           ),
         );
       },
