@@ -1,5 +1,6 @@
 {
   "common" : {
-    "example_key" : "Example Value"
+    "weight_key" : "Weight",
+    "height_key" : "Height"
   }
 }

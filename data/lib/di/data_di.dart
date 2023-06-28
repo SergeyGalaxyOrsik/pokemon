@@ -1,4 +1,3 @@
-import 'package:core/config/app_config.dart';
 import 'package:core/config/network/dio_config.dart';
 
 import 'package:core/di/app_di.dart';
@@ -17,7 +16,7 @@ class DataDI {
   void _initDio() {
     appLocator.registerLazySingleton<DioConfig>(
       () => DioConfig(
-        appConfig: appLocator<AppConfig>(),
+        // appConfig: appLocator<AppConfig>(),
       ),
     );
   }

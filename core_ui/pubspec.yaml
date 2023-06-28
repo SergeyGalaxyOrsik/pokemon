@@ -16,7 +16,12 @@ dependencies:
     path: ../domain
   navigation:
     path: ../navigation
+  data:
+    path: ../data
   flutter_svg: ^2.0.5
+  equatable:
+  cached_network_image:
+  flutter_bloc:
 
 
 dev_dependencies:

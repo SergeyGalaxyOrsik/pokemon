@@ -1,10 +1,11 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:feature/feature.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon/feature/presentation/bloc/pokemon_list_cubit/pokemon_list_cubit.dart';
-import 'package:pokemon/feature/presentation/pages/pokemons_home_screen.dart';
+import 'package:navigation/app_router/app_router.dart';
 import 'package:pokemon/locator_service.dart' as di;
 import 'package:pokemon/locator_service.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +14,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = $AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +24,12 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<PokemonListCubit>(create: (context) => sl<PokemonListCubit>()..loadPokemon()),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.default,
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
-        home: HomePage(),
+        // home: HomePage(),
       ),
     );
   }
