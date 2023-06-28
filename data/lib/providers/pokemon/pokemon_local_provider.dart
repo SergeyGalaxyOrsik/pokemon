@@ -13,7 +13,7 @@ abstract class PokemonLocalProvider {
   Future<void> pokemonsToCache(List<PokemonModel> pokemons);
 }
 
-const CACHED_POKEMONS_LIST = 'CACHED_POKEMONS_LIST';
+
 
 class PokemonLocalProviderImpl implements PokemonLocalProvider {
   final SharedPreferences sharedPreferences;
@@ -23,7 +23,7 @@ class PokemonLocalProviderImpl implements PokemonLocalProvider {
   @override
   Future<List<PokemonModel>> getLastPokemonsFromCache() {
     final jsonPersonList =
-        sharedPreferences.getStringList(CACHED_POKEMONS_LIST);
+        sharedPreferences.getStringList(StringConstants.cachedPokemonList);
     if (jsonPersonList!.isNotEmpty) {
       return Future.value(jsonPersonList
           .map((pokemon) => PokemonModel.fromJson(json.decode(pokemon)))
@@ -38,7 +38,8 @@ class PokemonLocalProviderImpl implements PokemonLocalProvider {
     final List<String> jsonPersonList =
         pokemons.map((pokemon) => json.encode(pokemon.toJson())).toList();
 
-    sharedPreferences.setStringList(CACHED_POKEMONS_LIST, jsonPersonList);
+    sharedPreferences.setStringList(StringConstants.cachedPokemonList, jsonPersonList);
+    // ignore: void_checks
     return Future.value(jsonPersonList);
   }
 }

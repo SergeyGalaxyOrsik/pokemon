@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:core_ui/core_ui.dart';
 
-@Route
 class HomePage extends StatelessWidget {
   
   const HomePage({super.key});
