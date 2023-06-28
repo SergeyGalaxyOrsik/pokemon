@@ -3,19 +3,15 @@ import 'package:data/data.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-abstract class PokemonRemoteProvider {
+class PokemonRemoteProvider {
   /// Calls the https://pokeapi.co/api/v2/pokemon?offset=0&limit=20 endpoint
   ///
   /// Throws a [ServerException] for all error codes.
-  Future<List<PokemonModel>> getAllPokemons(int offset);
-}
-
-class PokemonRemoteProviderImpl implements PokemonRemoteProvider {
+  // Future<List<PokemonModel>> getAllPokemons(int offset);
   final http.Client client;
 
-  PokemonRemoteProviderImpl({required this.client});
+  PokemonRemoteProvider({required this.client});
 
-  @override
   Future<List<PokemonModel>> getAllPokemons(int offset) => _getPokemonsFromUrl(
       'https://pokeapi.co/api/v2/pokemon?offset=$offset&limit=20');
 

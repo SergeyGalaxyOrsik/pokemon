@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
             if (supportedLocale.languageCode == locale?.languageCode &&
                 supportedLocale.countryCode == locale?.countryCode) {
               return supportedLocale;
-            };
+            }
           }
 
           return supportedLocales.first;

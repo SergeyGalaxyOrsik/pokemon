@@ -8,8 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'pokemon_card_widget.dart';
 
+// ignore: must_be_immutable
 class PokemonList extends StatelessWidget {
-  final scrollController = ScrollController();
+  final _scrollController = ScrollController();
 
   final List<PokemonEntity> pokemons;
   final Future<void> updateBloc;
@@ -22,9 +23,9 @@ class PokemonList extends StatelessWidget {
       required this.isLoading});
 
   void setupScrollController(BuildContext context) {
-    scrollController.addListener(() {
-      if (scrollController.position.atEdge) {
-        if (scrollController.position.pixels != 0) {
+    _scrollController.addListener(() {
+      if (_scrollController.position.atEdge) {
+        if (_scrollController.position.pixels != 0) {
           BlocProvider.of<PokemonListCubit>(context).loadPokemon();
         }
       }
@@ -34,7 +35,7 @@ class PokemonList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      controller: scrollController,
+      controller: _scrollController,
       itemBuilder: (context, index) {
         if (index < pokemons.length) {
           return PokemonCard(pokemon: pokemons[index]);
@@ -42,8 +43,8 @@ class PokemonList extends StatelessWidget {
           Timer(
             const Duration(microseconds: 30),
             () {
-              scrollController
-                  .jumpTo(scrollController.position.maxScrollExtent);
+              _scrollController
+                  .jumpTo(_scrollController.position.maxScrollExtent);
             },
           );
           return Center(child: loadingIndicator());

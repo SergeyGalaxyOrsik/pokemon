@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
@@ -41,7 +40,6 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalization> {
 
   @override
   bool isSupported(Locale locale) {
-    // TODO: implement isSupported
     return ['en'].contains(locale.languageCode);
   }
 

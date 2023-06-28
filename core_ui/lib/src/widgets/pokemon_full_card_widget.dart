@@ -16,7 +16,7 @@ class PokemonFullCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0x000000ff),
+        backgroundColor: AppColors.noColor,
         elevation: 0,
         title: Text(
           pokemon.name,

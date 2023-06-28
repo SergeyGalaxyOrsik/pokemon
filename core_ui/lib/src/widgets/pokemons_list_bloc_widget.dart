@@ -1,6 +1,5 @@
 import 'package:core_ui/core_ui.dart';
 import 'package:core_ui/src/widgets/loading_indicator.dart';
-import 'package:core_ui/src/widgets/pokemon_card_widget.dart';
 import 'package:core_ui/src/widgets/pokemon_list_cubit/pokemon_list_state.dart';
 import 'package:core_ui/src/widgets/pokemon_list_widget.dart';
 import 'package:data/data.dart';

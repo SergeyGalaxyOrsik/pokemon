@@ -31,13 +31,13 @@ Future<void> init() async{
       ));
 
   sl.registerLazySingleton<PokemonRemoteProvider>(
-    () => PokemonRemoteProviderImpl(
+    () => PokemonRemoteProvider(
       client: http.Client(),
     ),
   );
 
   sl.registerLazySingleton<PokemonLocalProvider>(
-    () => PokemonLocalProviderImpl(
+    () => PokemonLocalProvider(
       sharedPreferences: sl(),
     ),
   );
