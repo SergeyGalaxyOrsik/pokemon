@@ -47,7 +47,7 @@ class AppColors {
       'fairy': AppColors.fairy,
       'fighting': AppColors.fighting,
       'fire': AppColors.fire,
-      'fluing': AppColors.flying,
+      'flying': AppColors.flying,
       'ghost': AppColors.ghost,
       'normal': AppColors.normal,
       'grass': AppColors.grass,

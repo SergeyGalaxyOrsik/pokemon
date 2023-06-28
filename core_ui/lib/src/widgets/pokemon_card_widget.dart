@@ -1,5 +1,4 @@
 import 'package:core_ui/core_ui.dart';
-import 'package:core_ui/src/widgets/pokemon_full_card_widget.dart';
 import 'package:data/data.dart';
 import 'package:flutter/material.dart';
 

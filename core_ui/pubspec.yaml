@@ -22,6 +22,7 @@ dependencies:
   equatable:
   cached_network_image:
   flutter_bloc:
+  pull_to_refresh: ^2.0.0
 
 
 dev_dependencies:
