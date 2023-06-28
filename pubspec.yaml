@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
   domain:
     path: ./domain
   core:
@@ -35,6 +36,8 @@ dependencies:
   cached_network_image:
   flutter_svg:
   http: ^0.13.6
+  flutter_localizations:
+      sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +54,7 @@ flutter:
     - core_ui/lib/src/assets/images/pokeball.png
     - core_ui/lib/src/assets/images/straighten.svg
     - core_ui/lib/src/assets/images/weight.svg
+    - core/resources/en.json
     
 
 fonts:

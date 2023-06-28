@@ -1,15 +1,58 @@
 import 'dart:ui';
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 class AppLocalization {
-  static const String langsFolderPath = 'core/resources/langs';
+  final Locale locale;
 
-  /// In case if you need more locales just create another
-  /// const variable and add created locale to [supportedLocales]
-  /// also you may need to get locale from local store that was
-  /// previously set so here is an example how you can update [fallbackLocale] :
-  /// appLocator<PrefsProvider>().getLocale() ?? _enLocale
-  static List<Locale> get supportedLocales => <Locale>[_enLocale];
+  AppLocalization(this.locale);
 
-  static Locale get fallbackLocale => _enLocale;
-  static const Locale _enLocale = Locale('en', 'US');
+  static AppLocalization? of(BuildContext context) {
+    return Localizations.of<AppLocalization>(context, AppLocalization);
+  }
+
+  static const LocalizationsDelegate<AppLocalization> delegate =
+      _AppLocalizationsDelegate();
+
+  Map<String, String>? _localizedStrings;
+
+  Future<bool> load() async {
+    String jsonString =
+        await rootBundle.loadString('core/resources/${locale.languageCode}.json');
+
+    Map<String, dynamic> jsonMap = json.decode(jsonString);
+
+    _localizedStrings = jsonMap.map((key, value) {
+      return MapEntry(key, value.toString());
+    });
+
+    return true;
+  }
+
+  String? translate(String key) {
+    return _localizedStrings![key];
+  }
+}
+
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalization> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  bool isSupported(Locale locale) {
+    // TODO: implement isSupported
+    return ['en'].contains(locale.languageCode);
+  }
+
+  @override
+  Future<AppLocalization> load(Locale locale) async {
+    AppLocalization localization = AppLocalization(locale);
+    await localization.load();
+    return localization;
+  }
+
+  @override
+  bool shouldReload(covariant LocalizationsDelegate<AppLocalization> old) =>
+      false;
 }

@@ -1,5 +1,4 @@
 import 'package:data/entities/pokemon_models/sprites_models/sprites_model.dart';
-import 'package:data/entities/pokemon_models/type_model/type_model.dart';
 import 'package:equatable/equatable.dart';
 
 class PokemonEntity extends Equatable {

@@ -1,6 +1,5 @@
 import 'package:data/entities/pokemon_entity.dart';
 import 'package:data/entities/pokemon_models/sprites_models/sprites_model.dart';
-import 'package:data/entities/pokemon_models/type_model/type_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'pokemon_model.g.dart';

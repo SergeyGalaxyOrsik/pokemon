@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColors.primaryPok,
       ),
-      body: PokemonList(),
+      body: PokemonListBloc(),
     );
   }
 }

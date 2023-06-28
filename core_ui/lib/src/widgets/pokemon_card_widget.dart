@@ -9,33 +9,13 @@ class PokemonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, dynamic> typeColor = {
-      'bug': AppColors.bug,
-      'dark': AppColors.dark,
-      'dragon': AppColors.dragon,
-      'electric': AppColors.electric,
-      'fairy': AppColors.fairy,
-      'fighting': AppColors.fighting,
-      'fire': AppColors.fire,
-      'fluing': AppColors.flying,
-      'ghost': AppColors.ghost,
-      'normal': AppColors.normal,
-      'grass': AppColors.grass,
-      'ground': AppColors.ground,
-      'ice': AppColors.ice,
-      'poison': AppColors.poison,
-      'psychic': AppColors.psychic,
-      'rock': AppColors.rock,
-      'steel': AppColors.steel,
-      'water': AppColors.water
-    };
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => PokemonFullCard(
-              backgroundColor: typeColor[pokemon.types[0]['type']['name']],
+              backgroundColor: AppColors.typeColor[pokemon.types[0]['type']['name']],
               pokemon: pokemon,
             ),
           ),
@@ -52,7 +32,7 @@ class PokemonCard extends StatelessWidget {
                 colors: <Color>[
                   AppColors.greyLight,
                   // AppColors.greyWhite,
-                  typeColor[pokemon.types[0]['type']['name']]
+                  AppColors.typeColor[pokemon.types[0]['type']['name']]
                 ],
               ),
               borderRadius: BorderRadius.circular(AppDimens.BORDER_RADIUS_10)),

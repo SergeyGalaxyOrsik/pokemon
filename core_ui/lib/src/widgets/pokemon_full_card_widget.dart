@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/localization/app_localization.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:data/data.dart';
 import 'package:flutter/material.dart';
@@ -98,7 +99,7 @@ class PokemonFullCard extends StatelessWidget {
                               width: 8,
                             ),
                             Text(
-                              '${pokemon.weight / 10} kg',
+                              '${pokemon.weight / 10} ${AppLocalization.of(context)?.translate('kg') as String}',
                               style: AppFonts.body14,
                             ),
                           ],
@@ -107,7 +108,7 @@ class PokemonFullCard extends StatelessWidget {
                           height: 12,
                         ),
                         Text(
-                          'Weight',
+                          AppLocalization.of(context)!.translate('weight_key') as String,
                           style: AppFonts.body14,
                         )
                       ],
@@ -126,7 +127,7 @@ class PokemonFullCard extends StatelessWidget {
                               width: 8,
                             ),
                             Text(
-                              '${pokemon.height * 10} cm',
+                              '${pokemon.height * 10} ${AppLocalization.of(context)!.translate('cm') as String}',
                               style: AppFonts.body14,
                             ),
                           ],
@@ -135,7 +136,7 @@ class PokemonFullCard extends StatelessWidget {
                           height: 12,
                         ),
                         Text(
-                          'Height',
+                          AppLocalization.of(context)!.translate('height_key') as String,
                           style: AppFonts.body14,
                         )
                       ],

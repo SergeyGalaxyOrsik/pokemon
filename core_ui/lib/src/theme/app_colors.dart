@@ -33,5 +33,26 @@ class AppColors {
   static const Color greyBackground = Color(0xFFefefef);
   static const Color greyWhite = Color(0xFFffffff);
 
+  // Map of Colors
+  static const Map<String, dynamic> typeColor = {
+      'bug': AppColors.bug,
+      'dark': AppColors.dark,
+      'dragon': AppColors.dragon,
+      'electric': AppColors.electric,
+      'fairy': AppColors.fairy,
+      'fighting': AppColors.fighting,
+      'fire': AppColors.fire,
+      'fluing': AppColors.flying,
+      'ghost': AppColors.ghost,
+      'normal': AppColors.normal,
+      'grass': AppColors.grass,
+      'ground': AppColors.ground,
+      'ice': AppColors.ice,
+      'poison': AppColors.poison,
+      'psychic': AppColors.psychic,
+      'rock': AppColors.rock,
+      'steel': AppColors.steel,
+      'water': AppColors.water
+    };
 }
 
