@@ -1,15 +1,16 @@
+import 'package:core/localization/app_localization.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:feature/feature.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon/feature/presentation/bloc/pokemon_list_cubit/pokemon_list_cubit.dart';
-import 'package:pokemon/feature/presentation/pages/pokemons_home_screen.dart';
 import 'package:pokemon/locator_service.dart' as di;
 import 'package:pokemon/locator_service.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,12 +20,31 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PokemonListCubit>(create: (context) => sl<PokemonListCubit>()..loadPokemon()),
+        BlocProvider<PokemonListCubit>(
+            create: (context) => sl<PokemonListCubit>()..loadPokemon()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
-        home: HomePage(),
+        supportedLocales: const [
+          Locale('en', 'US'),
+        ],
+        localizationsDelegates: const [
+          AppLocalization.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate
+        ],
+        localeResolutionCallback: (locale, supportedLocales) {
+          for (var supportedLocale in supportedLocales) {
+            if (supportedLocale.languageCode == locale?.languageCode &&
+                supportedLocale.countryCode == locale?.countryCode) {
+              return supportedLocale;
+            }
+          }
+
+          return supportedLocales.first;
+        },
+        home: const HomePage(),
       ),
     );
   }

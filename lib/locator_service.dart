@@ -1,12 +1,10 @@
+import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
+import 'package:data/data.dart';
+import 'package:domain/repositories/pokemon_repositories.dart';
+import 'package:domain/usecases/get_all_pokemons.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:pokemon/core/platform/network_info.dart';
-import 'package:pokemon/feature/data/datasource/pokemon_local_data_source.dart';
-import 'package:pokemon/feature/data/datasource/pokemon_remote_data_source.dart';
-import 'package:pokemon/feature/data/repositories/pokemon_repository_impl.dart';
-import 'package:pokemon/feature/domain/repositories/pokemon_repositories.dart';
-import 'package:pokemon/feature/domain/usecases/get_all_pokemons.dart';
-import 'package:pokemon/feature/presentation/bloc/pokemon_list_cubit/pokemon_list_cubit.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,14 +30,14 @@ Future<void> init() async{
         networkInfo: sl(),
       ));
 
-  sl.registerLazySingleton<PokemonRemoteDataSource>(
-    () => PokemonRemoteDataSourceImpl(
+  sl.registerLazySingleton<PokemonRemoteProvider>(
+    () => PokemonRemoteProvider(
       client: http.Client(),
     ),
   );
 
-  sl.registerLazySingleton<PokemonLocalDataSource>(
-    () => PokemonLocalDataSourceImpl(
+  sl.registerLazySingleton<PokemonLocalProvider>(
+    () => PokemonLocalProvider(
       sharedPreferences: sl(),
     ),
   );

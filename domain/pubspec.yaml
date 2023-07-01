@@ -12,6 +12,10 @@ dependencies:
     sdk: flutter
   core:
     path: ../core
+  data:
+    path: ../data
+  dartz:
+  json_annotation:
 
 
 dev_dependencies:

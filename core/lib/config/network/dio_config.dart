@@ -1,35 +1,41 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:data/data.dart';
 import 'package:dio/dio.dart';
-import '../app_config.dart';
-import 'interceptors/dio_log_interceptor.dart';
 
 part 'interceptors/error_interceptor.dart';
 part 'interceptors/request_interceptor.dart';
 part 'interceptors/response_interceptor.dart';
 
 class DioConfig {
-  final AppConfig appConfig;
-  static const int timeout = 10 * 1000;
+
 
   final Dio _dio = Dio();
 
   Dio get dio => _dio;
 
-  DioConfig({required this.appConfig}) {
-    _dio
-      ..options.baseUrl = appConfig.baseUrl
-      ..interceptors.addAll(<Interceptor>[
-        RequestInterceptor(_dio, headers),
-        ErrorInterceptor(_dio),
-        ResponseInterceptor(_dio),
-        dioLoggerInterceptor,
-      ]);
+  DioConfig();
+
+
+  Future<List<PokemonModel>> getAllPokemonsFromNetwork(int offsetApi) async {
+    final response = await _dio.get('https://pokeapi.co/api/v2/pokemon?offset=$offsetApi&limit=20');
+
+    if (response.statusCode == 200) {
+      dynamic pokemons = json.decode(response.data.body);
+      dynamic pokemon;
+      List pokemonList = [];
+      for (pokemon in pokemons['result']) {
+        dynamic responceOnePokemon = await _dio.get(pokemon['url']);
+        pokemonList.add(json.decode(responceOnePokemon.body));
+      }
+
+      return pokemonList
+          .map((pokemon) => PokemonModel.fromJson(pokemon))
+          .toList();
+    } else {
+      throw ServerException();
+    }
   }
 
-  Map<String, String> headers = <String, String>{};
-
-  void setToken(String? token) {
-    headers['authtoken'] = token ?? '';
-  }
 }

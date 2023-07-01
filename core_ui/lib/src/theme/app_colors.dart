@@ -6,9 +6,13 @@ class AppColors {
   // Primary color
   static const Color primaryPok = Color(0xFFdc0a2d);
 
+  //Other Colors
+  static const Color noColor = Color(0x000000ff);
+
   // Pokemon Type colors
   static const Color bug = Color(0xFFa7b723);
   static const Color dark = Color(0xFF75574c);
+  static const Color dirty = Color(0xFF75685c);
   static const Color dragon = Color(0xFF7037ff);
   static const Color electric = Color(0xFFf9cf30);
   static const Color fairy = Color(0xFFe69eac);
@@ -33,5 +37,27 @@ class AppColors {
   static const Color greyBackground = Color(0xFFefefef);
   static const Color greyWhite = Color(0xFFffffff);
 
+  // Map of Colors
+  static const Map<String, dynamic> typeColor = {
+      'bug': AppColors.bug,
+      'dark': AppColors.dark,
+      'dirty': AppColors.dirty,
+      'dragon': AppColors.dragon,
+      'electric': AppColors.electric,
+      'fairy': AppColors.fairy,
+      'fighting': AppColors.fighting,
+      'fire': AppColors.fire,
+      'flying': AppColors.flying,
+      'ghost': AppColors.ghost,
+      'normal': AppColors.normal,
+      'grass': AppColors.grass,
+      'ground': AppColors.ground,
+      'ice': AppColors.ice,
+      'poison': AppColors.poison,
+      'psychic': AppColors.psychic,
+      'rock': AppColors.rock,
+      'steel': AppColors.steel,
+      'water': AppColors.water
+    };
 }
 

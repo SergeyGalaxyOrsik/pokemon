@@ -1,32 +1,25 @@
-enum Flavor {
-  dev,
-}
+// enum Flavor {
+//   dev,
+// }
 
 class AppConfig {
-  final Flavor flavor;
-  final String baseUrl;
-  final String webSocketUrl;
+  // final Flavor flavor;
+  final String baseUrl= 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=';
+  // final String webSocketUrl;
 
-  AppConfig({
-    required this.flavor,
-    required this.baseUrl,
-    required this.webSocketUrl,
-  });
+  AppConfig();
 
-  factory AppConfig.fromFlavor(Flavor flavor) {
-    String baseUrl;
-    String webSocketUrl;
-    switch (flavor) {
-      case Flavor.dev:
-        baseUrl = '';
-        webSocketUrl = '';
-        break;
-    }
+  // factory AppConfig.fromFlavor(Flavor flavor) {
+  //   String webSocketUrl;
+  //   switch (flavor) {
+  //     case Flavor.dev:
+  //       webSocketUrl = '';
+  //       break;
+  //   }
 
-    return AppConfig(
-      flavor: flavor,
-      baseUrl: baseUrl,
-      webSocketUrl: webSocketUrl,
-    );
-  }
+  //   return AppConfig(
+  //     flavor: flavor,
+  //     webSocketUrl: webSocketUrl,
+  //   );
+  // }
 }
