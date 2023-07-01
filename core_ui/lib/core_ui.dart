@@ -1,6 +1,7 @@
 library core_ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 export 'src/widgets/widgets.dart';
 

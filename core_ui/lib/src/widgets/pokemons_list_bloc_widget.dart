@@ -7,9 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PokemonListBloc extends StatelessWidget {
-  final scrollController = ScrollController();
 
-  PokemonListBloc({super.key});
+  const PokemonListBloc({super.key});
 
   Future<void> updateBloc(BuildContext context) async {
     BlocProvider.of<PokemonListCubit>(context).loadPokemon();
@@ -36,7 +35,11 @@ class PokemonListBloc extends StatelessWidget {
             style: AppFonts.subtitleBold14,
           );
         }
-        return PokemonList(pokemons: pokemons, isLoading: isLoading, updateBloc: updateBloc(context),);
+        return PokemonList(
+          pokemons: pokemons,
+          isLoading: isLoading,
+          updateBloc: updateBloc(context),
+        );
       },
     );
   }

@@ -3,7 +3,6 @@ import 'package:core/localization/app_localization.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:data/data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class PokemonFullCard extends StatelessWidget {
   final PokemonEntity pokemon;
@@ -38,7 +37,7 @@ class PokemonFullCard extends StatelessWidget {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          Image.asset('core_ui/lib/src/assets/images/pokeball.png'),
+          AppImages.pokeball,
           Padding(
             padding: EdgeInsets.only(
                 top: (MediaQuery.of(context).size.height / 3.5)),
@@ -65,8 +64,7 @@ class PokemonFullCard extends StatelessWidget {
                   placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) =>
-                      Image.asset('core_ui/lib/src/assets/images/noImage.png'),
+                  errorWidget: (context, url, error) => AppImages.noImage,
                 ),
                 
                 Container(
@@ -90,11 +88,7 @@ class PokemonFullCard extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            SvgPicture.asset(
-                              'core_ui/lib/src/assets/images/weight.svg',
-                              height: 24,
-                              width: 24,
-                            ),
+                            AppImages.weightIcon,
                             const SizedBox(
                               width: 8,
                             ),
@@ -118,11 +112,7 @@ class PokemonFullCard extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            SvgPicture.asset(
-                              'core_ui/lib/src/assets/images/straighten.svg',
-                              height: 24,
-                              width: 24,
-                            ),
+                            AppImages.heightIcon,
                             const SizedBox(
                               width: 8,
                             ),
